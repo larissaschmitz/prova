@@ -37,16 +37,15 @@
         <form method="post" action="acaoCont.php">
         <div class="form-group col-lg-3">
         <p>ID</p>
-                    <input readonly  type="text" name="cont_id" id="cont_id" class="form-control" value="<?php if ($acao == "editar") echo $dados['cont_id']; else echo 0; ?>"><br>
+                <input readonly  type="text" name="cont_id" id="cont_id" class="form-control" value="<?php if ($acao == "editar") echo $dados['cont_id']; else echo 0; ?>"><br>
         <p>Tipo</p>
-                    <input name="cont_tipo" id="cont_tipo" type="text" required="true" class="form-control" value="<?php if ($acao == "editar") echo $dados['cont_tipo']; ?>" placeholder="Digite o tipo"><br>
+                <input name="cont_tipo" id="cont_tipo" type="text" required="true" class="form-control" value="<?php if ($acao == "editar") echo $dados['cont_tipo']; ?>" placeholder="Digite o tipo"><br>
         <p>Descrição</p>
-                    <input name="cont_descricao" id="cont_descricao" type="text" required="true" class="form-control" value="<?php if ($acao == "editar") echo $dados['cont_descricao']; ?>" placeholder="Digite a descrição"><br>
-                   
+                <input name="cont_descricao" id="cont_descricao" type="text" required="true" class="form-control" value="<?php if ($acao == "editar") echo $dados['cont_descricao']; ?>" placeholder="Digite a descrição"><br> 
         <p>Insira a pessoa</p>
         <select name="cont_pf_id" id="cont_pf_id" class="form-select">
             <?php
-                require_once("acaoCont.php");
+                require_once("utils.php");
                 echo lista_pessoa(0);
             ?>
         </select>

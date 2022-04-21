@@ -43,6 +43,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="indexCont.php">Contatos</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="operacao.php">Operação</a>
+            </li>
             <ul>
         </div>
         </div>
@@ -98,7 +101,7 @@
 
         else if($busca == 3){
             $consulta = $pdo->query("SELECT * FROM pessoa_fisica, conta_corrent  
-                                WHERE conta_corrent.cc_pf_id LIKE '$procurar%'
+                                WHERE pessoa_fisica.pf_nome LIKE '$procurar%'
                                 AND pessoa_fisica.pf_id = conta_corrent.cc_pf_id
                                 ORDER BY pessoa_fisica.pf_nome");}
 

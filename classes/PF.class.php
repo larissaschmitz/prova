@@ -5,7 +5,6 @@
         private $pf_nome;
         private $pf_dt_nascimento;
 
-        
         public function __construct($nid, $ncpf, $nn, $ndtn){
             
             $this->setId($nid);
@@ -68,7 +67,7 @@
 
             $query = 'SELECT * FROM pessoa_fisica';
             if($id > 0){
-                $query .= ' WHERE pf_id = :id';
+                $query .= ' WHERE pf_id = :Id';
                 $stmt->bindParam(':Id', $id);
             }
                 $stmt = $conexao->prepare($query);

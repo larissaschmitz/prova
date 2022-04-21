@@ -43,6 +43,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="indexCont.php">Contatos</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="operacao.php">Operação</a>
+            </li>
             <ul>
         </div>
         </div>

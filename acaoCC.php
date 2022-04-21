@@ -7,30 +7,57 @@
 
     
     $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
+
     if ($acao == "excluir"){
         $cc_numero = isset($_GET['cc_numero']) ? $_GET['cc_numero'] : 0;
+        try{
+            $contaCorrente = new ContaCorrente("", "", "", "");
+            if($contaCorrente->excluir($cc_numero))
+            echo "a";
+            else 
+            echo "b";
+            header("location:indexCC.php");
+        } catch(Exception $e){
+            echo "<h1>erro.</h1>
+            <br> Erro:".$e->getMessage();
+        }
         
-        $contaCorrente = new ContaCorrente("", "", "", "");
-        $resultado = $contaCorrente->excluir($cc_numero);
-        header("location:indexCC.php");
     }
+    
    
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     if ($acao == "salvar"){
         $cc_numero = isset($_POST['cc_numero']) ? $_POST['cc_numero'] : "";
         if ($cc_numero == 0){
-            $contaCorrente = new ContaCorrente("", $_POST['cc_saldo'], $_POST['cc_pf_id'], $_POST['cc_dt_ultima_alteracao']);      
-           $resultado = $contaCorrente->inserir();
-            header("location:indexCC.php");
-        }
-        else     
+            try{
+                $contaCorrente = new ContaCorrente("", $_POST['cc_saldo'], $_POST['cc_pf_id'], $_POST['cc_dt_ultima_alteracao']);      
+                    if($contaCorrente->inserir())
+                        echo "Cadastro efetuado com sucesso";
+                    else
+                        echo "Erro";
+                        header("location:indexCC.php");
+                }catch(Exception $e){
+                    echo "<h1>Erro ao cadastrar a conta.</h1>
+                    <br> Erro:".$e->getMessage();
+            }}
+
+        else
+        try{
         $contaCorrente = new ContaCorrente($_POST['cc_numero'], $_POST['cc_saldo'], $_POST['cc_pf_id'], $_POST['cc_dt_ultima_alteracao']);
-        $resultado = $contaCorrente->editar($cc_numero);
-        header("location:indexCC.php");        
-}
+        if($contaCorrente->editar($cc_numero))
+            echo "Editado com efetuado com sucesso";
+        else
+            echo "Erro";
+            header("location:indexCC.php");
+        }catch(Exception $e){
+            echo "<h1>Erro ao editar a conta.</h1>
+            <br> Erro:".$e->getMessage();
+        }
+        }
 
 
         function exibir($chave, $dados){
+            $str = 0;
             foreach($dados as $linha){
                 $str .= "<option value='".$linha[$chave[0]]."'>".$linha[$chave[1]]."</option>";
             }

@@ -34,8 +34,6 @@
             header("location:indexCont.php");        
     }
 
-    
-
 //Consultar dados
     function buscarDados($cont_id){
         $pdo = Conexao::getInstance();
@@ -52,19 +50,5 @@
         return $dados;
     }
 
-    function exibir($chave, $dados){
-        foreach($dados as $linha){
-            $str .= "<option value='".$linha[$chave[0]]."'>".$linha[$chave[1]]."</option>";
-        }
-        return $str;
-    }
-
-
-    function lista_pessoa($id){
-        $pessoa = new PF("","","","");
-        $lista = $pessoa->buscar($id);
-        return exibir(array('pf_id', 'pf_nome'), $lista);
-
-    }
 
 ?>

@@ -45,6 +45,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="indexCC.php">Conta corrente</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="operacao.php">Operação</a>
+            </li>
             <ul>
         </div>
         </div>
@@ -95,13 +98,13 @@
         else if($busca == 2){
             $consulta = $pdo->query("SELECT * FROM pessoa_fisica, contatos 
                                 WHERE contatos.cont_tipo LIKE '$procurar%' 
-                                AND pessoa_fisica.pf_id = contatos.cc_pf_id
+                                AND pessoa_fisica.pf_id = contatos.cont_pf_id
                                 ORDER BY contatos.cont_tipo");}
 
         else if($busca == 3){
             $consulta = $pdo->query("SELECT * FROM pessoa_fisica, contatos  
-                                WHERE contatos.cont_pf_id LIKE '$procurar%'
-                                AND pessoa_fisica.pf_id = contatos.cc_pf_id
+                                WHERE pessoa_fisica.pf_nome LIKE '$procurar%'
+                                AND pessoa_fisica.pf_id = contatos.cont_pf_id
                                 ORDER BY pessoa_fisica.pf_nome");}
 
 
