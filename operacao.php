@@ -12,6 +12,8 @@
 }
     $title = "Operação de Saque / Depósito";
     $valor = isset($_POST['valor']) ? $_POST['valor'] : "";
+    $cc_numero = isset($_POST['cc_numero']) ? $_POST['cc_numero'] : 0;
+
     $op = isset($_POST['op']) ? $_POST['op'] : "";
 
 // var_dump($dados);
@@ -62,9 +64,14 @@
 </div>
     <?php
          require_once('acaoOp.php');
-         echo op($valor);
+          op($valor);
+
+        
+
          
     ?>
+
+    
 
             </form>
     </div>

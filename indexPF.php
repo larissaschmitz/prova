@@ -10,14 +10,16 @@
 
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title> <?php echo $title; ?> </title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php echo $title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/estilo.css">
-
     
     <script>
-        function excluirRegistro(url){
+        function excluir(url){
             if (confirm("Confirma Exclusão?"))
                 location.href = url;
         }
@@ -110,14 +112,15 @@
             <td><?php echo $linha['pf_cpf'];?></td>
             <td><?php echo $linha['pf_nome'];?></td>
             <td><?php echo date("d/m/Y", strtotime($linha['pf_dt_nascimento']));?></td>
-            <td><a href='cadastroPF.php?acao=editar&pf_id=<?php echo $linha['pf_id'];?>'> <img class="center" src="img/edit.png" alt=""></a></td>
-            <td><?php echo " <a href=javascript:excluirRegistro('acaoPF.php?acao=excluir&pf_id={$linha['pf_id']}')>Excluir pessoa física</a><br>"; ?></td>
+            <td><a href='cadastroPF.php?acao=editar&pf_id=<?php echo $linha['pf_id'];?>'> <img src="img/edit.svg" style="width: 1.8vw;"></a></td>
+            <td><?php echo " <a href=javascript:excluir('acaoPF.php?acao=excluir&pf_id={$linha['pf_id']}')>";?><img src="img/delete.svg" style="width: 1.5vw;"></a></td>
         
         </tr>
     <?php } ?>       
     </table>
     </fieldset>
     </form>
+
             </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

@@ -11,11 +11,12 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title> <?php echo $title; ?> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php echo $title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="shortcut icon" href="img\favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/estilo.css">
-
     
     <script>
         function excluirRegistro(url){
@@ -115,8 +116,8 @@
             <td><?php echo $linha['cont_tipo'];?></td>
             <td><?php echo $linha['cont_descricao'];?></td>
             <td><?php echo $linha['pf_nome'];?></td>
-            <td><a href='cadastroCont.php?acao=editar&cont_id=<?php echo $linha['cont_id'];?>'> <img class="center" src="img/edit.png" alt=""></a></td>
-            <td><?php echo " <a href=javascript:excluirRegistro('acaoCont.php?acao=excluir&cont_id={$linha['cont_id']}')>Excluir contato</a><br>"; ?></td>
+            <td><a href='cadastroCont.php?acao=editar&cont_id=<?php echo $linha['cont_id'];?>'> <img src="img/edit.svg" style="width: 1.8vw;"></a></td>
+            <td><?php echo " <a href=javascript:excluirRegistro('acaoCont.php?acao=excluir&cont_id={$linha['cont_id']}')>";?><img src="img/delete.svg" style="width: 1.5vw;"></a></td>
         
         </tr>
     <?php } ?>       

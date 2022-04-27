@@ -44,7 +44,7 @@
         
         public function editar($pf_id){
                 $pdo = Conexao::getInstance();
-                $stmt = $pdo->prepare("UPDATE `prova1`.`pessoa_fisica` SET `pf_cpf` = :pf_cpf, `pf_nome` = :pf_nome, `pf_dt_nascimento` = :pf_dt_nascimento WHERE (`pf_id` = :pf_id);");
+                $stmt = $pdo->prepare("UPDATE `pessoa_fisica` SET `pf_cpf` = :pf_cpf, `pf_nome` = :pf_nome, `pf_dt_nascimento` = :pf_dt_nascimento WHERE (`pf_id` = :pf_id);");
                 $stmt->bindValue(':pf_id', $this->setId($this->pf_id), PDO::PARAM_INT);
                 $stmt->bindValue(':pf_cpf', $this->setCPF($this->pf_cpf), PDO::PARAM_STR);
                 $stmt->bindValue(':pf_nome', $this->setNome($this->pf_nome), PDO::PARAM_STR);

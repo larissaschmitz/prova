@@ -10,9 +10,12 @@
 
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title> <?php echo $title; ?> </title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php echo $title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/estilo.css">
 
     
@@ -110,12 +113,12 @@
         
         ?>
         <tr><td><?php echo $linha['cc_numero'];?></td>
-            <td><?php echo $linha['cc_saldo'];?></td>
+        <td><?php echo number_format ($linha['cc_saldo'], 2, ',', '.');?></td>
             <td><?php echo $linha['pf_nome'];?></td>
             <td><?php echo date("d/m/Y",strtotime($linha['cc_dt_ultima_alteracao']));?></td>
 
-            <td><a href='cadastroCC.php?acao=editar&cc_numero=<?php echo $linha['cc_numero'];?>'> <img class="center" src="img/edit.png" alt=""></a></td>
-            <td><?php echo " <a href=javascript:excluirRegistro('acaoCC.php?acao=excluir&cc_numero={$linha['cc_numero']}')>Excluir Conta Corrente</a><br>"; ?></td>
+            <td><a href='cadastroCC.php?acao=editar&cc_numero=<?php echo $linha['cc_numero'];?>'> <img src="img/edit.svg" style="width: 1.8vw;"></a></td>
+            <td><?php echo " <a href=javascript:excluirRegistro('acaoCC.php?acao=excluir&cc_numero={$linha['cc_numero']}')>";?><img src="img/delete.svg" style="width: 1.5vw;"></a></td>
         
         </tr>
     <?php } ?>       

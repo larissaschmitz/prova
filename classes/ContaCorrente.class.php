@@ -1,3 +1,4 @@
+
 <?php
     class ContaCorrente {
         private $cc_numero;
@@ -22,17 +23,17 @@
         public function getData() {return $this->cc_dt_ultima_alteracao;}
 
         public function setNumero($numero) {
-           // if ($numero > 0 && $numero <> "")
+        //    if ($numero <> "")
                 return $this->cc_numero = $numero;
             // else 
-            //     throw new Exception("Número de conta inválido: ".$numero);
+                // throw new Exception("Número de conta inválido: ".$numero);
         }
 
         public function setSaldo($saldo) {
-            //if ($saldo >= 0)
+            // if ($saldo >= 0)
                 return $this->cc_saldo = $saldo;
-            //else 
-              //  throw new Exception("Erro");
+            // else 
+            //    throw new Exception("Erro");
         }
 
         public function setPfId($pf_id) {
@@ -61,7 +62,7 @@
 
         public function editar($cc_numero) {
             $pdo = Conexao::getInstance();
-            $stmt = $pdo->prepare("UPDATE `prova1`.`conta_corrent` SET `cc_saldo` = :cc_saldo, `cc_pf_id` = :cc_pf_id, `cc_dt_ultima_alteracao` = :cc_dt_ultima_alteracao WHERE (`cc_numero` = :cc_numero);");
+            $stmt = $pdo->prepare("UPDATE `conta_corrent` SET `cc_saldo` = :cc_saldo, `cc_pf_id` = :cc_pf_id, `cc_dt_ultima_alteracao` = :cc_dt_ultima_alteracao WHERE (`cc_numero` = :cc_numero);");
             $stmt->bindValue(':cc_numero', $this->setNumero($this->cc_numero), PDO::PARAM_INT);
             $stmt->bindValue(':cc_saldo', $this->setSaldo($this->cc_saldo), PDO::PARAM_STR);
             $stmt->bindValue(':cc_pf_id', $this->setPfId($this->cc_pf_id), PDO::PARAM_STR);
@@ -97,4 +98,3 @@
     }
 
     ?>
-
